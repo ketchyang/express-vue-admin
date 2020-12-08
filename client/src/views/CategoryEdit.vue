@@ -30,11 +30,11 @@ export default {
             } else {
                 res = await this.$http.post('categories', this.model);
             }
-            if (res) {
+            if (res.statusText === 'OK') {
                 this.$router.push('/categories/list');
                 this.$message({
                     type: 'success',
-                    message: '保存成功',
+                    message: `${this.id ? '更新' : '新建'}成功`,
                 });
             }
         },

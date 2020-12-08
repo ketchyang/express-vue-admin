@@ -18,6 +18,11 @@ module.exports = (app) => {
         res.send(item);
     });
 
+    router.delete('/categories/:id', async (req, res) => {
+        const item = await Category.findByIdAndDelete(req.params.id);
+        res.send(item);
+    });
+
     router.post('/categories', async (req, res) => {
         const model = await Category.create(req.body);
         res.send(model);

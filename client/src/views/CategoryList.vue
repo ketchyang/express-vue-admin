@@ -1,0 +1,54 @@
+<template>
+    <div>
+        <h1>分类列表</h1>
+        <el-table :data="items">
+            <el-table-column
+                prop="_id"
+                label="ID"
+                width="220"
+            ></el-table-column>
+            <el-table-column prop="name" label="分类名称"></el-table-column>
+            <el-table-column label="操作">
+                <template slot-scope="scope">
+                    <el-button
+                        size="mini"
+                        @click="handleEdit(scope.$index, scope.row)"
+                        >编辑</el-button
+                    >
+                    <el-button
+                        size="mini"
+                        type="danger"
+                        @click="handleDelete(scope.$index, scope.row)"
+                        >删除</el-button
+                    >
+                </template>
+            </el-table-column>
+        </el-table>
+    </div>
+</template>
+
+<script>
+export default {
+    data() {
+        return {
+            items: [],
+        };
+    },
+    methods: {
+        async fetch() {
+            const res = await this.$http.get('categories');
+            this.items = res.data;
+        },
+        handleEdit(index, row) {
+            console.log(index, row);
+            this.$router.push(`/categories/edit/${row._id}`);
+        },
+        handleDelete(index, row) {
+            console.log(index, row);
+        },
+    },
+    created() {
+        this.fetch();
+    },
+};
+</script>

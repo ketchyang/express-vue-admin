@@ -1,17 +1,15 @@
-const express = require("express");
-const cors = require("cors");
+const express = require('express');
+const morgan = require('morgan');
+const cors = require('cors');
 const app = express();
 
-require("./routes/admin")(app);
-require("./plugins/db")(app);
-
-app.use(cors());
 app.use(express.json());
+app.use(morgan('dev'));
+app.use(cors());
 
-app.get("/", function (req, res) {
-  res.send("hello world");
-});
+require('./routes/admin')(app);
+require('./plugins/db')(app);
 
 app.listen(3000, () => {
-  console.log("http://localhost:3000");
+    console.log('http://localhost:3000');
 });

@@ -27,7 +27,7 @@
 export default {
   data() {
     return {
-      items: [],
+      items: []
     };
   },
   methods: {
@@ -42,21 +42,21 @@ export default {
       this.$confirm(`是否确认要删除分类"${row.name}"?`, '提示', {
         confirmButtonText: '确定',
         cancelButtonText: '取消',
-        type: 'warning',
+        type: 'warning'
       }).then(async () => {
         const res = await this.$http.delete(`categories/${row._id}`);
         if (res.statusText === 'OK') {
           this.$message({
             type: 'success',
-            message: '删除成功!',
+            message: '删除成功!'
           });
           this.fetch();
         }
       });
-    },
+    }
   },
   created() {
     this.fetch();
-  },
+  }
 };
 </script>

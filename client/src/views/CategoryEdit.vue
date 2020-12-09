@@ -25,12 +25,12 @@
 <script>
 export default {
   props: {
-    id: {},
+    id: {}
   },
   data() {
     return {
       model: {},
-      parents: [],
+      parents: []
     };
   },
   methods: {
@@ -45,7 +45,7 @@ export default {
         this.$router.push('/categories/list');
         this.$message({
           type: 'success',
-          message: `${this.id ? '更新' : '新建'}成功`,
+          message: `${this.id ? '更新' : '新建'}成功`
         });
       }
     },
@@ -56,11 +56,11 @@ export default {
     async fetchParents() {
       const res = await this.$http.get('categories');
       this.parents = res.data;
-    },
+    }
   },
   created() {
     this.id && this.fetch();
     this.fetchParents();
-  },
+  }
 };
 </script>

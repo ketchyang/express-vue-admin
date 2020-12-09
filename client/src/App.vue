@@ -4,4 +4,14 @@
   </div>
 </template>
 
-<script></script>
+<style>
+#app {
+  background-color: #fff;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+</style>

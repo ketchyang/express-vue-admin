@@ -3,9 +3,17 @@
     <h1>分类列表</h1>
     <el-table :data="items">
       <el-table-column prop="_id" label="ID" width="220"></el-table-column>
-      <el-table-column prop="name" label="分类名称"></el-table-column>
-      <el-table-column prop="parent.name" label="上级分类"></el-table-column>
-      <el-table-column label="操作">
+      <el-table-column
+        prop="name"
+        label="分类名称"
+        align="center"
+      ></el-table-column>
+      <el-table-column
+        prop="parent.name"
+        label="上级分类"
+        align="center"
+      ></el-table-column>
+      <el-table-column label="操作" align="center">
         <template slot-scope="scope">
           <el-button size="mini" @click="handleEdit(scope.$index, scope.row)">
             编辑

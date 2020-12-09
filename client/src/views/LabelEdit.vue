@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>{{ id ? '编辑' : '新建' }}分类</h1>
-    <el-form :inline="true" @submit.native.prevent="save">
+    <el-form @submit.native.prevent="save">
       <el-form-item label="名称">
         <el-input v-model="model.name"> </el-input>
       </el-form-item>
@@ -13,7 +13,7 @@
             :label="item.name"
             :value="item._id"
           ></el-option>
-        </el-select>
+        </el-select>ßßß
       </el-form-item>
       <el-form-item>
         <el-button type="primary" native-type="submit">保存</el-button>

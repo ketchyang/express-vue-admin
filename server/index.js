@@ -2,7 +2,7 @@ const express = require('express');
 const morgan = require('morgan');
 const cors = require('cors');
 
-const router = require('./routers/admin/index');
+const router = require('./routers/admin');
 const mongo = require('./plugins/mongo');
 
 const app = express();
